@@ -5,6 +5,12 @@ body {
 }
 /*************************************************/
 
+* {
+	/* 
+	A setting that makes the border and padding included in the total height/width 
+	*/
+	box-sizing: border-box;
+}
 
 header,
 section,
@@ -12,7 +18,7 @@ aside,
 main,
 footer {
 	border: 1px solid #333;
-	min-height: 150px;
+	min-height: 250px;
 }
 
 /**
@@ -141,4 +147,54 @@ footer {
 		"content content content content content content content content content sidebar sidebar sidebar"
 		"footer footer footer footer footer footer footer footer footer footer footer footer";
 	}
+}
+
+
+/**
+ *
+ * Flexbox solution
+ */
+
+header,
+main,
+aside {
+	background-color: beige;
+}
+
+#main-navigation {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 20px;
+	gap: 20px
+}
+
+#main-navigation button:last-child {
+	margin-left: auto;
+}
+
+#sidebar-navigation {
+	display: flex;
+	/* height: 100%; */
+	padding: 20px;
+	flex-flow: column nowrap; /* flex-direction flex-wrap */
+	gap: 20px
+}
+
+button {
+	background-color: white;
+	border: 1px solid #333;
+	border-radius: 3px;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px;
+}
+
+main section {
+	/* flex: max(600px, calc(100%/4 + 0.1%)); */
+	flex: 1 1 230px;
 }
